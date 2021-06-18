@@ -23,7 +23,7 @@ To get this project up and running locally, you must already have npm and nodejs
 - ``$ npm start``
 ```
 
-<!-- - [Live Version](https://calculator-math-magicians.netlify.app/) -->
+- [Live Version](https://bookstore-rrdx.netlify.app/)
 
 ### Run Tests
 <!-- Tests for modules written using **Jest** and **React Testing Library**
