@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Book = () => {
-  const { id, title, category } = useState('');
+const Book = (book) => {
+  const {
+    id, title, category, handleRemoveBook,
+  } = book;
   return (
     <tr>
       <td>{id}</td>
       <td>{title}</td>
       <td>{category}</td>
+      <td><button type="button" className="btn btn-primary" onClick={() => handleRemoveBook(book)}>Remove Book</button></td>
     </tr>
   );
 /* eslint-disable */
