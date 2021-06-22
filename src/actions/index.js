@@ -1,10 +1,10 @@
-export const ADD_BOOK = 'ADD_BOOK';
-export const REMOVE_BOOK = 'REMOVE_BOOK';
-
+let nextBookId = 2;
 export function addBook(book) {
-  return { type: ADD_BOOK, book };
+  /* eslint-disable */
+  return { type: 'ADD_BOOK', id: nextBookId += 1, book };
 }
+/* eslint-enable */
 
-export function removeBook(book) {
-  return { type: REMOVE_BOOK, book };
+export function removeBook(id) {
+  return { type: 'REMOVE_BOOK', payload: id };
 }
