@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addBook } from '../actions/index';
 
 const BooksForm = () => {
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const ref = useRef(null);
+
+  const handleChange = (e) => {
+    const { title, category } = e.target;
+  }  
+
   const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   const renderCategories = categories.map((item) => (
     <option key={uuidv4()}>{item}</option>
