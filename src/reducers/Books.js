@@ -1,5 +1,3 @@
-import { ADD_BOOK, REMOVE_BOOK } from '../actions/index';
-
 const initialState = {
   books: [
     { id: 1, title: 'Catch Me If You Can', category: 'Biography' },
@@ -15,21 +13,20 @@ const initialState = {
 
 const Books = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
+    case 'ADD_BOOK':
       return {
         ...state,
         books: [
           ...state.books,
-          {},
+          {
+            id: action.id, title: action.book.title, category: action.book.category,
+          },
         ],
       };
-    case REMOVE_BOOK:
+    case 'REMOVE_BOOK':
       return {
         ...state,
-        books: [
-          ...state.books,
-          {},
-        ],
+        books: state.books.filter((book) => action.payload !== book.id),
       };
     default:
       return state;
