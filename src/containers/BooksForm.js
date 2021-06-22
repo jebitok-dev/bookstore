@@ -12,7 +12,7 @@ class BooksForm extends React.Component {
       category: '',
     };
 
-    this.ref = React.createRef();
+    this.myRef = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
   }
@@ -23,6 +23,7 @@ class BooksForm extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
+    /* eslint-disable */
     this.props.addBook(this.state);
   }
 
@@ -57,6 +58,7 @@ class BooksForm extends React.Component {
                   </div>
                   <div className="dropdown">
                     <select className="custom-select" id="inputGroupSelect01" onChange={this.handleDrop} ref={this.myRef} value={this.state.selectValue}>
+                    /* eslint-enable */
                       <option selected>Choose Category</option>
                       {renderCategories}
                     </select>
@@ -75,4 +77,22 @@ class BooksForm extends React.Component {
   }
 }
 
-export default BooksForm;
+BooksForm.propTypes = {
+  addBook: PropTypes.func,
+};
+
+BooksForm.defaultProps = {
+  addBook: '',
+};
+
+const mapStateToProps = (state) => ({
+  books: state.books,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addBook: (book) => {
+    dispatch(addBook(book));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
