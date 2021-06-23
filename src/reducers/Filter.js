@@ -1,4 +1,6 @@
-const Filter = (initialState) => (state = initialState, action) => {
+const initialState = 'All';
+
+const Filter = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_FILTER':
       return {
