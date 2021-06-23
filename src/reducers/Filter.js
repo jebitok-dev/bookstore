@@ -1,15 +1,12 @@
-const Filter = (All, action) => {
+const Filter = (initialState) => (state = initialState, action) => {
   switch (action.type) {
-    case 'CATEGORY_FILTER':
+    case 'CHANGE_FILTER':
       return {
-        ...All,
-        category: [
-          ...All.category,
-          {},
-        ],
+        ...state,
+        filter: action.payload,
       };
     default:
-      return All;
+      return state;
   }
 };
 
