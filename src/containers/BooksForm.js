@@ -11,88 +11,89 @@ class BooksForm extends React.Component {
       title: '',
       category: '',
     };
-
-    this.myRef = React.createRef();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDrop = this.handleDrop.bind(this);
+    this.handleChange.bind(this);
+    this.handleSubmit.bind(this);
   }
 
-  handleDrop() {
-    this.setState({ title: this.inputNode.value, category: this.myRef.current.value });
-  }
+  handleChange = (e) => {
+    if (e.target.id === 'title') {
+      this.setState({
+        title: e.target.value,
+      });
+    } else if (e.target.id === 'category') {
+      this.setState({
+        category: e.target.value,
+      });
+    }
+  };
 
-  handleChange(e) {
-    e.preventDefault();
-    /* eslint-disable */
-    this.props.addBook(this.state);
-  }
+handleSubmit = (e) => {
+  e.preventDefault();
+  const { dispatch } = this.props;
+  dispatch(addBook(this.state));
+  this.setState({
+    title: '',
+    category: '',
+  });
+}
 
-  render() {
-    const stringId = 'category';
-    const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-    const renderCategories = categories.map((item, id) => (
-      <option key={uuidv4()} id={stringId + id.toString()} value={item}>{item}</option>
-    ));
+render() {
+  const stringId = 'category';
+  const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
+  const renderCategories = categories.map((item, id) => (
+    <option key={uuidv4()} id={stringId + id.toString()} value={item}>{item}</option>
+  ));
 
-    return (
-      <div>
-        <button type="button" className="addBook btn btn-primary" data-toogle="modal" data-target="#exampleModal">
-          Add a book!
-        </button>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form id="bookForm" name="updateTaskForm">
-                  <div className="title">
-                    <label htmlFor="fname">Title</label>
-                    <br />
-                    <input type="text" id="fname" name="title" ref={(node) => (this.inputNode = node)} />
-                    <br />
-                  </div>
-                  <div className="dropdown">
-                    <select className="custom-select" id="inputGroupSelect01" onChange={this.handleDrop} ref={this.myRef} value={this.state.selectValue}>
-                    /* eslint-enable */
-                      <option selected>Choose Category</option>
-                      {renderCategories}
-                    </select>
-                  </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary" onClick={this.handleChange}>Add a book</button>
-                  </div>
-                </form>
-              </div>
+  /* eslint-disable */
+  return (
+    <div>
+      <button type="button" className="addBook btn btn-primary" data-toogle="modal" data-target="#exampleModal">
+        Add a book!
+      </button>
+      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <form id="bookForm" name="updateTaskForm">
+                <div className="title">
+                  <label htmlFor="fname">Title</label>
+                  <br />
+                  <input type="text" id="fname" name="title" ref={(node) => (this.inputNode = node)} />
+                  <br />
+                </div>
+                <div className="dropdown">
+                  <select className="custom-select" id="category" onChange={this.handleChange}>
+                    <option selected>Choose Category</option>
+                    {renderCategories}
+                  </select>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Add a book</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+}
+/* eslint-enable */
 
 BooksForm.propTypes = {
-  addBook: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 BooksForm.defaultProps = {
-  addBook: '',
+  dispatch: null,
 };
 
-const mapStateToProps = (state) => ({
-  books: state.books,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  addBook: (book) => {
-    dispatch(addBook(book));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
+export default connect(null)(BooksForm);
