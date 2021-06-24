@@ -5,40 +5,63 @@ import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 
+/* eslint-disable react/prop-types */
+
 const BooksList = ({
-  books, removeBook, category, changeFilter,
+  books, removeBook, filter, changeFilter,
 }) => {
   const handleRemoveBook = (book) => {
     removeBook(book.id);
   };
 
-  const handFilterChange = (e) => {
-    const filter = e.target.value;
-    changeFilter(filter);
+  const handleFilterChange = (e) => {
+    changeFilter(e.target.value);
   };
 
-  const booksFiltered = category === 'All' ? books : books.filter((book) => book.category === category);
+  let booksFiltered = '';
+
+  if (filter === 'All') {
+    booksFiltered = books.map((book) => (
+      <Book
+        key={book.id}
+        id={book.id}
+        title={book.title}
+        category={book.category}
+        handleRemoveBook={handleRemoveBook}
+      />
+    ));
+  } else {
+    booksFiltered = books
+      .filter((book) => book.category === filter)
+      .map((b) => (
+        <Book
+          key={b.id}
+          id={b.id}
+          title={b.title}
+          category={b.category}
+          handleRemoveBook={handleRemoveBook}
+        />
+      ));
+  }
+
   return (
     <div>
       <CategoryFilter
-        handleFilterChange={handFilterChange}
-        filter={category}
+        handleFilterChange={handleFilterChange}
       />
-      <div>
-        {booksFiltered.map((book) => (
-        /* eslint-disable */
-        <Book
-          id={book.id}
-          key={book.id}
-          handleRemoveBook={handleRemoveBook}
-          {...book}
-        />
-        ))}
-      </div>
-  </div>
-);
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>{booksFiltered}</tbody>
+      </table>
+    </div>
+  );
 };
-/* eslint-enable */
 
 const mapStateToProps = (state) => ({
   books: state.books.books,
@@ -49,14 +72,12 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.any),
   removeBook: PropTypes.func,
   changeFilter: PropTypes.func,
-  category: PropTypes.string,
 };
 
 BooksList.defaultProps = {
   books: [],
   removeBook: () => { },
   changeFilter: () => { },
-  category: 'All',
 };
 
 const mapDispatchToProps = (dispatch) => ({
