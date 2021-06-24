@@ -49,16 +49,17 @@ const BooksList = ({
       <CategoryFilter
         handleFilterChange={handleFilterChange}
       />
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>{booksFiltered}</tbody>
-      </table>
+      <div className="books-container">
+        {booksFiltered.map((book) => (
+          <Book
+            id={book.id}
+            key={book.id}
+            handleRemoveBook={handleRemoveBook}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...book}
+          />
+        ))}
+      </div>
     </div>
   );
 };
