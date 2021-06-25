@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&family=Roboto+Slab:wght@400;700&display=swap");
+
+:root {
+  --blue: #1e90ff;
+  --white: #fff;
+  --blue1: #307bbe;
+  --blue2: #379cf6;
+  --black: #333;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 1097px;
+  margin: 0 40px 65px 0;
+  padding: 0 0 794px;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 var(--black);
+  background-color: var(--white);
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+.App {
+  width: 90%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  letter-spacing: normal;
+  color: var(--blue2);
+  background: var(--white);
+}
+
+.title {
+  margin: 6px 47px 2px 0;
+  font-size: 30px;
+  color: var(--blue2);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  margin-right: 2rem;
+  opacity: 0.5;
+  font-size: 13px;
+  letter-spacing: 1.9px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.selected {
+  font-weight: bold;
+}
