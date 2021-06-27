@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Book = (book) => {
-  const {
+const Book = ({
     id, title, category, handleRemoveBook,
-  } = book;
-  return (
+  }) => (
     <div className="book-item roboto">
       <div className="book-data">
         <p className="category mont">{category}</p>
@@ -61,7 +59,7 @@ const Book = (book) => {
   );
         
 Book.propTypes = {
-          handleClick: PropTypes.func,
+          handleRemoveBook: PropTypes.func,
         book: PropTypes.shape({
           id: PropTypes.number,
         title: PropTypes.string,
