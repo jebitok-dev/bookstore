@@ -46,29 +46,34 @@ render() {
 
   /* eslint-disable */
   return (
-    <div>
-        <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
-        </div>
-              <form id="bookForm" name="updateTaskForm">
-                <div className="title">
-                  <label htmlFor="fname">Title</label>
-                  <br />
-                  <input type="text" id="fname" name="title" ref={(node) => (this.inputNode = node)} />
-                  <br />
-                </div>
-                <div className="dropdown">
-                  <select className="custom-select" id="category" onChange={this.handleChange}>
-                    <option selected>Choose Category</option>
-                    {renderCategories}
-                  </select>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Add a book</button>
-                </div>
-              </form>
-            </div>
+    <div className="book-form">
+      <form id="bookForm" name="updateTaskForm">
+          <input 
+            type="text" 
+            id="book-title" 
+            name="title"
+            className="book-title"
+            onChange={this.handleChange}
+            value={title}
+            placeholder="Book Title"
+          />
+          <br />
+          <select 
+           className="book-category" 
+           id="category" 
+           onChange={this.handleChange}
+           value={category}
+          >
+            <option selected>Choose Category</option>
+            {renderCategories}
+          </select>
+        <input
+          type="submit" 
+          className="book-submit" 
+          onClick={this.handleSubmit}
+        />
+      </form>
+    </div>
   );
 }
 }
