@@ -71,3 +71,133 @@ body {
 .selected {
   font-weight: bold;
 }
+
+.profile {
+  width: 7rem;
+}
+
+.book-item {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin: 37px 100px;
+  padding: 3.2rem 14.7reem 2.6rem 2.7rem;
+  border-radius: 4px;
+  border: solid 1px var(--white);
+  background-color: var(--white);
+  font-weight: bold;
+}
+
+.book-data {
+  width: 50%;
+}
+
+.book-item .category {
+  width: 4.9rem;
+  height: 1.8rem;
+  margin: 0 3.9rem 0 0;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: normal;
+  color: var(--black);
+}
+
+.book-item .title {
+  font-size: 22px;
+  letter-spacing: -0.2px;
+  color: var(--black);
+}
+
+.book-item .author {
+  width: 107px;
+  height: 19px;
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--blue);
+}
+
+.book-item .links {
+  padding-top: 2rem;
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+
+.book-item .link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--blue1);
+  height: 19px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.book-item .link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.span {
+  width: 2px;
+  height: 24px;
+  margin: 12px 17px 0 15px;
+  border: solid 1px var(--white);
+}
+
+.percent-complete {
+  margin: 1px 92px 0 11px;
+  font-size: 32px;
+  color: var(--black);
+}
+
+.reading-progress {
+  display: flex;
+}
+
+.oval {
+  width: 6rem;
+  height: 6rem;
+}
+
+.completed {
+  margin: 7px 79px 12px 12px;
+  opacity: 0.5;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.line-2 {
+  width: 2px;
+  height: 70px;
+  margin: 0 3rem;
+  border: solid 1px var(--white);
+}
+
+.chapter-info {
+  width: 30px;
+}
+
+.current-chapter {
+  opacity: 0.5;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--black);
+}
+
+.update-progress {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: var(--white);
+  margin-top: 2rem;
+  padding: 7px 19px 8px 22px;
+  border-radius: 3px;
+  background-color: var(--blue2);
+}
+
+form {
+  
+}

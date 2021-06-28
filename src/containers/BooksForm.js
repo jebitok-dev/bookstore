@@ -47,19 +47,9 @@ render() {
   /* eslint-disable */
   return (
     <div>
-      <button type="button" className="addBook btn btn-primary" data-toogle="modal" data-target="#exampleModal">
-        Add a book!
-      </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
+        </div>
               <form id="bookForm" name="updateTaskForm">
                 <div className="title">
                   <label htmlFor="fname">Title</label>
@@ -79,10 +69,6 @@ render() {
                 </div>
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 }
