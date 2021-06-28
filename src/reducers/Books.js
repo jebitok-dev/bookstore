@@ -1,13 +1,45 @@
 const initialState = {
   books: [
-    { id: 1, title: 'Catch Me If You Can', category: 'Biography' },
-    { id: 2, title: 'The Overlook', category: 'Mistery' },
-    { id: 3, title: 'All the Devils are Here', category: 'History' },
-    { id: 4, title: 'Whole New Mind', category: 'Learning' },
-    { id: 5, title: 'Python for Kids', category: 'Kids' },
-    { id: 6, title: 'Human Again', category: 'Sci-Fi' },
-    { id: 7, title: 'The Stand', category: 'Horror' },
-    { id: 8, title: 'The Eye of God', category: 'Action' },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'Catch Me If You Can',
+      category: 'Biography',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'The Overlook',
+      category: 'Mistery',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'All the Devils are Here',
+      category: 'History',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'Whole New Mind',
+      category: 'Learning',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'Python for Kids',
+      category: 'Kids',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'Human Again',
+      category: 'Sci-Fi',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'The Stand',
+      category: 'Horror',
+    },
+    {
+      id: Math.floor(Math.random() * 20),
+      title: 'The Eye of God',
+      category: 'Action',
+    },
   ],
 };
 
@@ -29,6 +61,9 @@ const Books = (state = initialState, action) => {
         books: state.books.filter((book) => action.payload !== book.id),
       };
     default:
+      if (localStorage.bookstore) {
+        return JSON.parse(localStorage.bookstore);
+      } localStorage.bookstore = JSON.stringify(state);
       return state;
   }
 };
