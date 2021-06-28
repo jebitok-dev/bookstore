@@ -6,6 +6,7 @@
   --blue1: #307bbe;
   --blue2: #379cf6;
   --black: #333;
+  --cream: #e8e8e8;
 }
 
 *,
@@ -81,9 +82,9 @@ body {
   width: 90%;
   height: 100%;
   margin: 37px 100px;
-  padding: 3.2rem 14.7reem 2.6rem 2.7rem;
+  padding: 3.2rem 14.7rem 2.6rem 2.7rem;
   border-radius: 4px;
-  border: solid 1px var(--white);
+  border: solid 1px var(--cream);
   background-color: var(--white);
   font-weight: bold;
 }
@@ -143,7 +144,7 @@ body {
   width: 2px;
   height: 24px;
   margin: 12px 17px 0 15px;
-  border: solid 1px var(--white);
+  border: solid 1px var(--cream);
 }
 
 .percent-complete {
@@ -172,7 +173,7 @@ body {
   width: 2px;
   height: 70px;
   margin: 0 3rem;
-  border: solid 1px var(--white);
+  border: solid 1px var(--cream);
 }
 
 .chapter-info {
@@ -206,5 +207,36 @@ form {
 }
 
 .book-title {
-  
+  width: 50%;
+  margin-left: 100px;
+  height: 45px;
+  padding: 13px 571px 13px 17px;
+  border-radius: 4px;
+  border: solid 1px var(--cream);
+  background-color: var(--white);
+}
+
+.book-category {
+  width: 20%;
+  height: 45px;
+  padding: 6px 15px 9px 16px;
+  border-radius: 4px;
+  border: solid 1px var(--cream);
+  background-color: var(--white);
+}
+
+.book-submit {
+  width: 10%;
+  height: 45px;
+  border-radius: 3px;
+  background-color: var(--blue2);
+  color: var(--white);
+}
+
+.mont {
+  font-family: Montserrat, "Times New Roman", Times, serif;
+}
+
+.roboto {
+  font-family: RobotoSlab, "Times New Roman", Times, serif;
 }

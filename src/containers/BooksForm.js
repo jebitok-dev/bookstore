@@ -43,7 +43,7 @@ render() {
   const renderCategories = categories.map((item, id) => (
     <option key={uuidv4()} id={stringId + id.toString()} value={item}>{item}</option>
   ));
-
+  const { title, category } = this.state;
   /* eslint-disable */
   return (
     <div className="book-form">
