@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBook } from '../actions/index';
@@ -38,11 +37,7 @@ handleSubmit = (e) => {
 }
 
 render() {
-  const stringId = 'category';
   const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-  const renderCategories = categories.map((item, id) => (
-    <option key={uuidv4()} id={stringId + id.toString()} value={item}>{item}</option>
-  ));
   const { title, category } = this.state;
   /* eslint-disable */
   return (
@@ -65,7 +60,11 @@ render() {
            value={category}
           >
             <option selected>Choose Category</option>
-            {renderCategories}
+            {categories.map((cat) => (
+              <option cat={cat} key={cat}>
+                {cat}
+              </option>
+            ))}
           </select>
         <input
           type="submit" 
