@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Book from '../components/Book';
 import { removeBook } from '../actions/index';
 
-/* eslint-disable react/prop-types */
 const BooksList = ({
   books, filter, dispatch,
 }) => {

@@ -52,7 +52,7 @@ render() {
             value={title}
             placeholder="Book Title"
           />
-          <br />
+          {/* <br /> */}
           <select 
            className="book-category" 
            id="category" 
@@ -60,15 +60,16 @@ render() {
            value={category}
           >
             <option selected>Choose Category</option>
-            {categories.map((cat) => (
-              <option cat={cat} key={cat}>
-                {cat}
+            {categories.map((item) => (
+              <option item={item} key={item}>
+                {item}
               </option>
             ))}
           </select>
         <input
           type="submit" 
-          className="book-submit" 
+          className="book-submit"
+          value="Submit"
           onClick={this.handleSubmit}
         />
       </form>

@@ -15,57 +15,36 @@ const initialState = {
       title: 'All the Devils are Here',
       category: 'History',
     },
-    {
-      id: Math.floor(Math.random() * 20),
-      title: 'Whole New Mind',
-      category: 'Learning',
-    },
-    {
-      id: Math.floor(Math.random() * 20),
-      title: 'Python for Kids',
-      category: 'Kids',
-    },
-    {
-      id: Math.floor(Math.random() * 20),
-      title: 'Human Again',
-      category: 'Sci-Fi',
-    },
-    {
-      id: Math.floor(Math.random() * 20),
-      title: 'The Stand',
-      category: 'Horror',
-    },
-    {
-      id: Math.floor(Math.random() * 20),
-      title: 'The Eye of God',
-      category: 'Action',
-    },
   ],
 };
 
 const Books = (state = initialState, action) => {
+  let res;
+
   switch (action.type) {
     case 'ADD_BOOK':
-      return {
-        ...state,
-        books: [
-          ...state.books,
-          {
-            id: action.id, title: action.book.title, category: action.book.category,
-          },
-        ],
-      };
+      res = [...state, action.books];
+      break;
     case 'REMOVE_BOOK':
-      return {
-        ...state,
-        books: state.books.filter((book) => action.payload !== book.id),
-      };
+      res = state
+        .slice(
+          0,
+          state.findIndex((element) => element.id !== action.book),
+        )
+        .concat(
+          state.slice(
+            state.findIndex((element) => element.id === action.book) + 1,
+            state.length,
+          ),
+        );
+      break;
     default:
       if (localStorage.bookstore) {
         return JSON.parse(localStorage.bookstore);
-      } localStorage.bookstore = JSON.stringify(state);
-      return state;
-  }
+      } localStorage.bookstore = JSON.stringify(state.books);
+      return state.books;
+  } localStorage.bookstore = JSON.stringify(res);
+  return res;
 };
 
 export default Books;
