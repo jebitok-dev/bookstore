@@ -59,7 +59,7 @@ render() {
            onChange={this.handleChange}
            value={category}
           >
-            <option selected>Choose Category</option>
+            <option value="">Choose Category</option>
             {categories.map((item) => (
               <option item={item} key={item}>
                 {item}
