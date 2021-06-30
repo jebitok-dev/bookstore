@@ -39,11 +39,11 @@ const Books = (state = initialState, action) => {
         );
       break;
     default:
-      if (localStorage.bookstore) {
-        return JSON.parse(localStorage.bookstore);
-      } localStorage.bookstore = JSON.stringify(state.books);
+      if (localStorage.books) {
+        return JSON.parse(localStorage.books);
+      } localStorage.books = JSON.stringify(state.books);
       return state.books;
-  } localStorage.bookstore = JSON.stringify(res);
+  } localStorage.books = JSON.stringify(res);
   return res;
 };
 
