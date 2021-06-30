@@ -1,33 +1,28 @@
+/* eslint-disable*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Book from '../components/Book';
-import { removeBook, changeFilter } from '../actions/index';
-import CategoryFilter from '../components/CategoryFilter';
-
-/* eslint-disable react/prop-types */
+import { removeBook } from '../actions';
 
 const BooksList = ({
-  books, removeBook, filter, changeFilter,
+  books, removeBook, filter, dispatch,
 }) => {
-  const handleRemoveBook = (book) => {
-    removeBook(book.id);
-  };
-
-  const handleFilterChange = (e) => {
-    changeFilter(e.target.value);
+  const handleRemoveBook = ({ id }) => {
+    dispatch(removeBook(id));
   };
 
   let booksFiltered = '';
 
+  const bks = books.data || [];
   if (filter === 'All') {
-    booksFiltered = books.map((book) => (
+    booksFiltered = bks.map((book) => (
       <Book
         key={book.id}
         id={book.id}
         title={book.title}
         category={book.category}
-        handleRemoveBook={handleRemoveBook}
+        handleClick={handleRemoveBook}
       />
     ));
   } else {
@@ -39,51 +34,36 @@ const BooksList = ({
           id={b.id}
           title={b.title}
           category={b.category}
-          handleRemoveBook={handleRemoveBook}
+          handleClick={handleRemoveBook}
         />
       ));
   }
 
   return (
-    <div>
-      <CategoryFilter
-        handleFilterChange={handleFilterChange}
-      />
-      <div className="books-container">
-        {booksFiltered.map((book) => (
-          <Book
-            id={book.id}
-            key={book.id}
-            handleRemoveBook={handleRemoveBook}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...book}
-          />
-        ))}
+    <>
+      <div>
+        {booksFiltered}
       </div>
-    </div>
+    </>
   );
 };
 
-const mapStateToProps = (state) => ({
-  books: state.books.books,
-  category: state.books.filter,
-});
-
 BooksList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.any),
-  removeBook: PropTypes.func,
-  changeFilter: PropTypes.func,
+  books: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    category: PropTypes.string,
+  })),
+  filter: PropTypes.string,
+  dispatch: PropTypes.func.isRequired,
 };
 
 BooksList.defaultProps = {
   books: [],
-  removeBook: () => { },
-  changeFilter: () => { },
+  filter: '',
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  removeBook: (id) => dispatch(removeBook(id)),
-  changeFilter: (category) => dispatch(changeFilter(category)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
+export default connect((state) => ({
+  books: state.Books,
+  filter: state.Filter,
+}))(BooksList);

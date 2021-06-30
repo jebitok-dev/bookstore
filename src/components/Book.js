@@ -33,21 +33,21 @@ const Book = ({
     <div className="reading-progress">
       <img className="oval" alt="circle" src={circle} />
       <div>
-        <p className="percent-complete font-montserrat">
+        <p className="percent-complete mont">
           {Math.floor(Math.random() * 100)}
           %
         </p>
-        <p className="completed font-montserrat">Completed</p>
+        <p className="completed mont">Completed</p>
       </div>
     </div>
     <div className="line-2" />
     <div className="chapter-info">
-      <p className="current-chapter font-robotoslab">CURRENT CHAPTER</p>
-      <p className="chapter font-robotoslab">
+      <p className="current-chapter roboto">CURRENT CHAPTER</p>
+      <p className="chapter roboto">
         Chapter
         {Math.floor(Math.random() * 20)}
       </p>
-      <button type="button" className="update-progress font-robotoslab">
+      <button type="button" className="update-progress roboto">
         UPDATE CHAPTER
       </button>
     </div>
