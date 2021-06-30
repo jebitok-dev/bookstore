@@ -77,7 +77,7 @@ body {
   width: 7rem;
 }
 
-/* .book-item {
+.book-item {
   display: flex;
   width: 90%;
   height: 100%;
@@ -87,9 +87,9 @@ body {
   border: solid 1px var(--cream);
   background-color: var(--white);
   font-weight: bold;
-} */
+}
 
-.book-item {
+/* .book-item {
   width: 68px;
   height: 68px;
   border-bottom: 10px solid #e8e8e8;
@@ -98,7 +98,7 @@ body {
   border-color: #e8e8e8 #379cf6 #379cf6 #e8e8e8;
   border-style: solid;
   border-width: 5px;
-}
+} */
 
 .book-data {
   width: 50%;
