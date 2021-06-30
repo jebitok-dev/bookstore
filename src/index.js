@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Books from './reducers/Books';
-import './index.css';
+import './styles/App.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 

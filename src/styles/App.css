@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&family=Roboto+Slab:wght@400;700&display=swap");
+
+:root {
+  --blue: #1e90ff;
+  --white: #fff;
+  --medium-blue: #307bbe;
+  --dodger-blue: #379cf6;
+  --black-two: #121212;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 1097px;
+  margin: 0 40px 65px 0;
+  padding: 0 0 794px;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 var(--black-5);
+  background-color: #fafafa;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+}
+
+.App {
+  width: 90%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  letter-spacing: normal;
+  color: #0290ff;
+  background: white;
+}
+
+.title {
+  margin: 6px 47px 2px 0;
+  font-size: 30px;
+  letter-spacing: normal;
+  color: #0290ff;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  margin-right: 2rem;
+  opacity: 0.5;
+  font-size: 13px;
+  letter-spacing: 1.9px;
+  color: var(--black-two);
+  text-decoration: none;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.profile {
+  width: 7rem;
+}
+
+.book-item {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin: 37px 100px;
+  padding: 3.2rem 14.7rem 2.6rem 2.7rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: var(--white);
+  font-weight: bold;
+}
+
+.book-data {
+  width: 50%;
+}
+
+.book-item .category {
+  width: 4.9rem;
+  height: 1.8rem;
+  margin: 0 3.9rem 0 0;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: normal;
+  color: var(--black-two);
+}
+
+.book-item .title {
+  font-size: 22px;
+  letter-spacing: -0.2px;
+  color: var(--black-two);
+}
+
+.book-item .author {
+  width: 107px;
+  height: 19px;
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: normal;
+  color: #4386bf;
+}
+
+.book-item .links {
+  padding-top: 2rem;
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+
+.book-item .link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #069;
+  height: 19px;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: normal;
+}
+
+.book-item .link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.span {
+  width: 2px;
+  height: 24px;
+  margin: 12px 17px 0 15px;
+  border: solid 1px #e8e8e8;
+}
+
+.percent-complete {
+  margin: 1px 92px 0 11px;
+  font-size: 32px;
+  letter-spacing: normal;
+  color: var(--black-two);
+}
+
+.reading-progress {
+  display: flex;
+}
+
+.oval {
+  width: 6rem;
+  height: 6rem;
+}
+
+.completed {
+  margin: 7px 79px 12px 12px;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: normal;
+  color: var(--black-two);
+}
+
+.line-2 {
+  width: 2px;
+  height: 70px;
+  margin: 0 3rem;
+  border: solid 1px #e8e8e8;
+}
+
+.chapter-info {
+  width: 30%;
+}
+
+.current-chapter {
+  opacity: 0.5;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: normal;
+  color: var(--black-two);
+}
+
+.chapter {
+  margin-top: 1rem;
+  height: 21px;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  color: var(--black-two);
+}
+
+.update-progress {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: var(--white);
+  margin-top: 2rem;
+  padding: 7px 19px 8px 22px;
+  border-radius: 3px;
+  background-color: #0290ff;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.book-title {
+  width: 50%;
+  margin-left: 100px;
+  height: 45px;
+  padding: 13px 571px 13px 17px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: var(--white);
+}
+
+.book-category {
+  width: 20%;
+  height: 45px;
+  padding: 6px 15px 9px 16px;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: var(--white);
+}
+
+.book-submit {
+  width: 10%;
+  height: 45px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  color: white;
+}
+
+.mont {
+  font-family: Montserrat, "Times New Roman", Times, serif;
+}
+
+.roboto {
+  font-family: RobotoSlab, "Times New Roman", Times, serif;
+}
