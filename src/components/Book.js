@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import circle from '../images/circle.png';
 
 const Book = ({
-  id, title, category, handleClick,
+  id, title, category, handleRemoveBook,
 }) => (
   <div className="book-item roboto">
     <div className="book-data">
@@ -19,7 +19,7 @@ const Book = ({
           className="link"
           type="button"
           onClick={() => {
-            handleClick({ id, title, category });
+            handleRemoveBook({ id, title, category });
           }}
         >
           Remove
@@ -55,7 +55,7 @@ const Book = ({
 );
 
 Book.propTypes = {
-  handleClick: PropTypes.func,
+  handleRemoveBook: PropTypes.func,
   book: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
@@ -64,7 +64,7 @@ Book.propTypes = {
 };
 Book.defaultProps = {
   book: null,
-  handleClick: null,
+  handleRemoveBook: null,
 };
 
 export default Book;

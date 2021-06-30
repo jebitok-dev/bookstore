@@ -12,9 +12,9 @@ const BooksList = ({
   };
 
   let booksFiltered = '';
-  const bks = books.data || [];
+  // const bks = books.data || [];
   if (filter === 'All') {
-    booksFiltered = bks.map((book) => (
+    booksFiltered = books.map((book) => (
       <Book
         key={book.id}
         id={book.id}

@@ -31,8 +31,10 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 60px 0 var(--black);
   background-color: var(--white);
-  font-weight: normal;
+  font-weight: 400;
   font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
 }
 
 .App {
@@ -88,17 +90,6 @@ body {
   background-color: var(--white);
   font-weight: bold;
 }
-
-/* .book-item {
-  width: 68px;
-  height: 68px;
-  border-bottom: 10px solid #e8e8e8;
-  border-right: 10px solid hsl(0, 0%, 91%);
-  border-radius: 50%;
-  border-color: #e8e8e8 #379cf6 #379cf6 #e8e8e8;
-  border-style: solid;
-  border-width: 5px;
-} */
 
 .book-data {
   width: 50%;
