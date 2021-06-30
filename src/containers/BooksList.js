@@ -12,15 +12,15 @@ const BooksList = ({
   };
 
   let booksFiltered = '';
-
+  const bks = books.data || [];
   if (filter === 'All') {
-    booksFiltered = books.map((book) => (
+    booksFiltered = bks.map((book) => (
       <Book
         key={book.id}
         id={book.id}
         title={book.title}
         category={book.category}
-        handleRemoveBook={handleRemoveBook}
+        handleClick={handleRemoveBook}
       />
     ));
   } else {
@@ -32,7 +32,7 @@ const BooksList = ({
           id={b.id}
           title={b.title}
           category={b.category}
-          handleRemoveBook={handleRemoveBook}
+          handleClick={handleRemoveBook}
         />
       ));
   }
