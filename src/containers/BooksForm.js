@@ -42,10 +42,10 @@ render() {
   /* eslint-disable */
   return (
     <div className="book-form">
-      <form id="bookForm" name="updateTaskForm">
+      <form className="d-flex center" name="updateTaskForm">
           <input 
             type="text" 
-            id="book-title" 
+            id="title" 
             name="title"
             className="book-title"
             onChange={this.handleChange}

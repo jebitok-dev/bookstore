@@ -7,12 +7,12 @@ import { removeBook } from '../actions/index';
 const BooksList = ({
   books, filter, dispatch,
 }) => {
-  const handleRemoveBook = (id) => {
+  const handleRemoveBook = ({ id }) => {
     dispatch(removeBook(id));
   };
 
   let booksFiltered = '';
-  // const bks = books.data || [];
+
   if (filter === 'All') {
     booksFiltered = books.map((book) => (
       <Book

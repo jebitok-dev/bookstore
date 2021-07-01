@@ -9,8 +9,11 @@ export function addBook(book) {
   };
 }
 
-export function removeBook(id) {
-  return { type: 'REMOVE_BOOK', payload: id };
+export function removeBook(book) {
+  return {
+    type: 'REMOVE_BOOK',
+    payload: book,
+  };
 }
 
 export function changeFilter(category) {

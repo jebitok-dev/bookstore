@@ -23,7 +23,7 @@ const Books = (state = initialState, action) => {
 
   switch (action.type) {
     case 'ADD_BOOK':
-      res = [...state, action.books];
+      res = [...state, action.book];
       break;
     case 'REMOVE_BOOK':
       res = state
@@ -39,11 +39,11 @@ const Books = (state = initialState, action) => {
         );
       break;
     default:
-      if (localStorage.books) {
-        return JSON.parse(localStorage.books);
-      } localStorage.books = JSON.stringify(state.books);
+      if (localStorage.bookstore) {
+        return JSON.parse(localStorage.bookstore);
+      } localStorage.bookstore = JSON.stringify(state.books);
       return state.books;
-  } localStorage.books = JSON.stringify(res);
+  } localStorage.bookstore = JSON.stringify(res);
   return res;
 };
 
