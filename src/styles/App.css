@@ -48,7 +48,10 @@ body {
   align-items: center;
 }
 
-body, .book-item, .book-title, .book-category {
+body,
+.book-item,
+.book-title,
+.book-category {
   border-radius: 4px;
 }
 
