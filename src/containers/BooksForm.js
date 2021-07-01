@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBook } from '../actions/index';
@@ -38,50 +37,42 @@ handleSubmit = (e) => {
 }
 
 render() {
-  const stringId = 'category';
   const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-  const renderCategories = categories.map((item, id) => (
-    <option key={uuidv4()} id={stringId + id.toString()} value={item}>{item}</option>
-  ));
-
+  const { title, category } = this.state;
   /* eslint-disable */
   return (
-    <div>
-      <button type="button" className="addBook btn btn-primary" data-toogle="modal" data-target="#exampleModal">
-        Add a book!
-      </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Add to Bookstore</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form id="bookForm" name="updateTaskForm">
-                <div className="title">
-                  <label htmlFor="fname">Title</label>
-                  <br />
-                  <input type="text" id="fname" name="title" ref={(node) => (this.inputNode = node)} />
-                  <br />
-                </div>
-                <div className="dropdown">
-                  <select className="custom-select" id="category" onChange={this.handleChange}>
-                    <option selected>Choose Category</option>
-                    {renderCategories}
-                  </select>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Add a book</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="book-form">
+      <form className="d-flex center" name="updateTaskForm">
+          <input 
+            type="text" 
+            id="title" 
+            name="title"
+            className="book-title"
+            onChange={this.handleChange}
+            value={title}
+            placeholder="Book Title"
+          />
+          {/* <br /> */}
+          <select 
+           className="book-category" 
+           id="category" 
+           onChange={this.handleChange}
+           value={category}
+          >
+            <option value="">Choose Category</option>
+            {categories.map((item) => (
+              <option item={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        <input
+          type="submit" 
+          className="book-submit"
+          value="Submit"
+          onClick={this.handleSubmit}
+        />
+      </form>
     </div>
   );
 }
@@ -89,11 +80,7 @@ render() {
 /* eslint-enable */
 
 BooksForm.propTypes = {
-  dispatch: PropTypes.func,
-};
-
-BooksForm.defaultProps = {
-  dispatch: null,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(null)(BooksForm);

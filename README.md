@@ -3,9 +3,11 @@
 # bookstore
 building front-end that is fast, dynamic and responsive to action for Magic-books Inc. is a fictional company based in Germany using React-Redux
 
+![screenshot](./src/images/Screenshot.png)
 ## Built With
 
 - React
+- Redux Toolkit
 
 ## Getting Started
 
@@ -25,8 +27,8 @@ To get this project up and running locally, you must already have npm and nodejs
 
 - [Live Version](https://bookstore-rrdx.netlify.app/)
 
-### Run Tests
-<!-- Tests for modules written using **Jest** and **React Testing Library**
+<!--### Run Tests
+ Tests for modules written using **Jest** and **React Testing Library**
 - ``$ npm run test`` or ``$ yarn test`` -->
 
 ## Author
